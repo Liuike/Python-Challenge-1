@@ -13,17 +13,39 @@ MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
                     '0':'-----', ', ':'--..--', '.':'.-.-.-',
                     '?':'..--..', '/':'-..-.', '-':'-....-',
                     '(':'-.--.', ')':'-.--.-'}
+def encode(message):
+    encoded = ''
+    encode_character = ''
 
-message = input('enter: ')
-decoded = ''
-decode_character = ''
+    for letter in message:
+        if letter != ' ':
+            encode_character = MORSE_CODE_DICT[letter]
+            encoded += encode_character
+            encoded += ' '
 
-for letter in message:
-    if letter != ' ':
-        decode_character = MORSE_CODE_DICT[letter]
-        decoded += decode_character
+        else:
+            encoded += ' '
 
-    else:
-        decoded += ' '
+    print(encoded)
+encode('LITTLE FOX')
 
-print(decoded)
+def decode(message):
+    decoded = ''
+    lst_backup = []
+    lst_morse = message.split('  ')
+    for i in lst_morse:
+        x = i.split(' ')
+        lst_backup += x
+        lst_backup += [' ']
+
+    for i in lst_backup:
+        if i != ' ':
+            for key, value in MORSE_CODE_DICT.items():
+                if i == value:
+                    decoded += key
+        else:
+            decoded += ' '
+
+    print(decoded)
+
+decode('.-.. .. - - .-.. .  ..-. --- -..- ')
