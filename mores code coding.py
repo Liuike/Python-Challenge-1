@@ -27,7 +27,7 @@ def encode(message):
             encoded += ' '
 
     print(encoded)
-encode('LITTLE FOX')
+encode('HEISENBURG')
 
 def decode(message):
     decoded = ''
@@ -48,4 +48,4 @@ def decode(message):
 
     print(decoded)
 
-decode('.-.. .. - - .-.. .  ..-. --- -..- ')
+decode('.... . .. ... . -. -... ..- .-. --. ')
